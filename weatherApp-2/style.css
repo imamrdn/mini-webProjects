@@ -58,6 +58,7 @@ header i {
 }
 
 .input-part .info-txt {
+    display: none;
     font-size: 17px;
     text-align: center;
     padding: 12px 10px;
