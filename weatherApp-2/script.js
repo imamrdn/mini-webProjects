@@ -4,6 +4,8 @@ const wrapper = document.querySelector(".wrapper"),
     inputField = inputPart.querySelector("input"),
     locationBtn = inputPart.querySelector("button");
 
+let api;
+
 inputField.addEventListener("keyup", e => {
     //if user pressed enter btn and input value is not empty
     if (e.key == "Enter" && inputField.value != "") {
@@ -19,6 +21,11 @@ locationBtn.addEventListener("click", () => {
     }
 });
 
+function onSuccess(position) {
+    const { latitude, longitude } = position.coords; //getting lat and lon of the user device from coords obj
+    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=2501969fb7ff4df90a8dd500e3ad7522`;
+    fetchData();
+}
 
 function onError(error) {
     infoTxt.innerHTML = error.message;
@@ -26,7 +33,11 @@ function onError(error) {
 }
 
 function requestApi(city) {
-    let api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2501969fb7ff4df90a8dd500e3ad7522`;
+    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=2501969fb7ff4df90a8dd500e3ad7522`;
+    fetchData();
+}
+
+function fetchData() {
     infoTxt.innerHTML = "Getting weather details...";
     infoTxt.classList.add("pending");
     //getting api response and returning it with parsing into js and in another
@@ -35,5 +46,25 @@ function requestApi(city) {
 }
 
 function weatherDetails(info) {
-    console.log(info);
+    infoTxt.classList.replace("pending", "error");
+    if (info.cod == "404") {
+        infoTxt.innerHTML = `${inputField.value} isn't a valid city name`;
+    } else {
+        //let's get required propertis value from the info object
+        const city = info.name;
+        const country = info.sys.country;
+        const { description, id } = info.weather[0];
+        const { feels_like, humidity, temp } = info.main;
+
+        //let's pass these values to a particular html element
+        wrapper.querySelector(".temp .numb").innerText = Math.floor(temp);
+        wrapper.querySelector(".weather").innerText = description;
+        wrapper.querySelector(".location span").innerText = `${city}, ${country}`;
+        wrapper.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);;
+        wrapper.querySelector(".humidity span").innerText = `${humidity}%`;
+
+        infoTxt.classList.remove("pending", "error");
+        wrapper.classList.add("active");
+        console.log(info);
+    }
 }
