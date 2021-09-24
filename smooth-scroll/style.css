@@ -9,12 +9,14 @@ body {
     color: #fff;
     line-height: 1.6;
     height: 100vh;
+    overflow: hidden;
 }
 
 .container {
     width: 100%;
     height: 100%;
     /* CSS Smooth scroll */
+    overflow-y: scroll;
 }
 
 .navbar {
@@ -65,4 +67,23 @@ section h1 {
 
 section p {
     font-size: 1.5rem;
+}
+
+
+/* section-img */
+
+section#home {
+    background: url('https://source.unsplash.com/WLUHO9A_xik/1600x900') no-repeat center center/ cover;
+}
+
+section#about {
+    background: url('https://source.unsplash.com/KR2mdHJ5qMg/1600x900') no-repeat center center/ cover;
+}
+
+section#service {
+    background: url('https://source.unsplash.com/1600x900/?nature') no-repeat center center/ cover;
+}
+
+section#contact {
+    background: url('https://source.unsplash.com/1600x900/?water') no-repeat center center/ cover;
 }
