@@ -18,5 +18,82 @@
 
 .wrapper p {
     text-align: justify;
-    padding-bottom: ;
+    padding-bottom: 20px;
+}
+
+.counter-up {
+    background: url('https://source.unsplash.com/WLUHO9A_xik/1600x900') no-repeat;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.counter-up::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8)
+}
+
+.counter-up .content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content .box {
+    width: calc(25% - 30px);
+    border: 1px dashed rgba(255, 255, 255, 0.6);
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #fff;
+    flex-direction: column;
+}
+
+.content .box .icon {
+    font-size: 48px;
+    color: #e6e6e6;
+}
+
+.content .box .counter {
+    font-size: 48px;
+    color: #f2f2f2;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.content .box .text {
+    color: #ccc;
+    font-weight: 400;
+}
+
+@media (max-width: 1036px) {
+    .counter-up {
+        padding: 50px 50px 0 50px;
+    }
+    .content .box {
+        width: calc(50% - 30px);
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 580px) {
+    .content .box {
+        width: 100%;
+    }
 }
