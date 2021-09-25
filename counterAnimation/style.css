@@ -6,6 +6,14 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.home-img {
+    background: url('https://source.unsplash.com/WLUHO9A_xik/1600x900') no-repeat;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .wrapper {
     padding: 20px 50px;
 }
