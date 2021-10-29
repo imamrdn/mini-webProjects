@@ -55,7 +55,8 @@ input {
     margin: 2rem 0 4rem;
 }
 
-.progressBar::before {
+.progressBar::before,
+.progress {
     content: " ";
     position: absolute;
     top: 50%;
@@ -64,6 +65,11 @@ input {
     width: 100%;
     background-color: #dcdcdc;
     z-index: -1;
+}
+
+.progress {
+    background-color: var(--primary-color);
+    width: 0%;
 }
 
 .progress-step {
