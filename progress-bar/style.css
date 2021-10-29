@@ -55,6 +55,14 @@ input {
     padding: 1.5rem;
 }
 
+.form-step {
+    display: none;
+}
+
+.form-step-active {
+    display: block;
+}
+
 .input-group {
     margin: 2rem 0;
 }
