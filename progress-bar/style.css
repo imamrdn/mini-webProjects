@@ -45,6 +45,38 @@ input {
 }
 
 
+/* progress-bar */
+
+.progressBar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+}
+
+.progressBar::before {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+}
+
+.progress-step {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #dcdcdc;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+}
+
+
 /* Form */
 
 .form {
