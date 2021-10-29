@@ -32,6 +32,18 @@ input {
     border-radius: 0.25;
 }
 
+.width-50 {
+    width: 50%;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
 
 /* Form */
 
@@ -50,9 +62,24 @@ input {
 
 /* button */
 
+.btns-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
 .btn {
     padding: 0.75rem;
     display: block;
-    text-decoration: noen;
+    text-decoration: none;
     background-color: var(--primary-color);
+    color: #f3f3f3;
+    text-align: center;
+    border-radius: 0.25em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
 }
