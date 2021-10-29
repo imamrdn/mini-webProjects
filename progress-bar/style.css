@@ -52,6 +52,7 @@ input {
     display: flex;
     justify-content: space-between;
     counter-reset: step;
+    margin: 2rem 0 4rem;
 }
 
 .progressBar::before {
@@ -62,6 +63,7 @@ input {
     height: 4px;
     width: 100%;
     background-color: #dcdcdc;
+    z-index: -1;
 }
 
 .progress-step {
@@ -69,11 +71,27 @@ input {
     height: 35px;
     border-radius: 50%;
     background-color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .progress-step::before {
     counter-increment: step;
     content: counter(step);
+}
+
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.progress-step-active {
+    background-color: var(--primary-color);
+    color: #f3f3f3;
 }
 
 
